@@ -1,3 +1,7 @@
 <h1>Instagram</h1>
 <h2>No Photos yet</h2>
 <a href= '/photos/new'>Add Photo</a>
+
+<%= @photo.each do |p| %>
+  <%= p.caption %>
+<% end %>
