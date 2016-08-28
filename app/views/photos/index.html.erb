@@ -1,8 +1,8 @@
 <h1>Instagram</h1>
 
 <% if @photos.any? %>
-  <%= @photos.each do |photo| %>
-    <%= image_tag photo.image.url %>
+  <% @photos.each do |photo| %>
+    <%= image_tag photo.image.url(:thumb)%>
     <h2> <%= photo.caption %> </h2>
   <% end %>
 <% else %>
