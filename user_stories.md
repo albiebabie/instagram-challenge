@@ -35,3 +35,17 @@ As a user I want to customise my photos
 So that I can add something new to the photo
 I need to add a filter to the photo
 ```
+```
+Story 6
+
+As a user I want to upload only photos
+So that that the app is purely for photo
+I need to have an uploader that accepts only images
+```
+```
+Story 7
+
+As a user I want to view only post that have an image photos
+So that the app is clean
+I don't want to be able to upload without an image attached
+```
