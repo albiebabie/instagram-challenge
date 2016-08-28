@@ -1,14 +1,7 @@
-<!-- 
-<%= form_for @photo, html: { multipart: true } do |f| %>
-   <%= f.file_field_with_label :image %>
-<% end %>
-
-
-<%= form_for @photo, html: { multipart: true } do |form| %>
+<%= form_for @photos, html: { multipart: true } do |form| %>
   <%= form.label :image %>
   <%= form.file_field :image %>
   <%= form.label :caption %>
   <%= form.text_field :caption %>
-  <%= form.submit %>
+  <%= form.submit 'Create Photo' %>
 <% end %>
- -->
