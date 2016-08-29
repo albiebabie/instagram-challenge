@@ -1,8 +1,12 @@
 require 'rails_helper'
 
-feature 'Reviews' do
-  scenario 'users can comment on a photo' do
-    visit '/photos'
+feature 'Comments:' do
+  before do
+    User.create(email: 'email@test.com', password: '123456')
+  end
+  scenario "users can comment on a photo if they are logged in" do
+    visit '/'
+    sign_in_1
     add_photo_1
     click_link 'Add Comment'
     fill_in 'Comment', with: 'Awesome smile mate'

@@ -4,11 +4,12 @@
   <div>
     <% @photos.each do |photo| %>
       <%= link_to image_tag(photo.image.url(:thumb)), photo_path(photo), id: photo.id %>
-      <h2> <%= photo.caption %> </h2>
-      <br>
-      <%= photo.comments.each do |c| %>
+      <h3> <%= photo.caption %> </h3>
+      <% photo.comments.each do |c| %>
         <%= c.comment %>
       <% end %>
+      <br>
+      <br>
       <%= link_to "Add Comment", new_photo_comment_path(photo) %>
       <br>
       <%= link_to "Edit Photo", edit_photo_path(photo) %>

@@ -1,3 +1,11 @@
+def sign_in_1
+  visit '/'
+  click_link 'Sign in'
+  fill_in 'Email', with: 'email@test.com'
+  fill_in 'Password', with: '123456'
+  click_button 'Log in'
+end
+
 def add_photo_1
   click_link 'Add Photo'
   attach_file 'Image', '/Users/Albie/Desktop/test_image.jpg'
