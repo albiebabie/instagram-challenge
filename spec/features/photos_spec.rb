@@ -3,6 +3,7 @@ require 'rails_helper'
 feature 'Photos' do
 
   context 'not added' do
+
     scenario 'should display a prompt to add a Photo' do
       visit '/photos'
       expect(page).to have_content 'No Photos yet'
@@ -11,6 +12,7 @@ feature 'Photos' do
   end
 
   context 'can be added' do
+
     scenario 'displays the new photo on the index page' do
       visit '/photos'
       add_photo_1
@@ -21,6 +23,7 @@ feature 'Photos' do
   end
 
   context 'cannot be created' do
+
     scenario 'if user does not upload an image file' do
       visit '/photos'
       add_photo_without_image
@@ -53,7 +56,8 @@ feature 'Photos' do
   end
 
   context 'editing photos' do
-    scenario 'displays an edit link, which allows user to edit caption' do
+
+    scenario 'allows user to edit caption' do
       visit '/photos'
       add_photo_1
       click_link 'Edit Photo'
@@ -62,6 +66,28 @@ feature 'Photos' do
       expect(page).not_to have_content('Photo One')
       expect(page).to have_content('This caption has been edited')
       expect(page).to have_css("img[src*='test_image.jpg']")
+    end
+
+    scenario 'allows user to edit the change the uploaded image' do
+      visit '/photos'
+      add_photo_1
+      click_link 'Edit Photo'
+      attach_file 'Image', '/Users/Albie/Desktop/test_2.jpg'
+      click_button 'Update Photo'
+      expect(page).to have_content('Photo One')
+      expect(page).not_to have_css("img[src*='test_image.jpg']")
+      expect(page).to have_css("img[src*='test_2.jpg']")
+    end
+  end
+
+  context 'deleting photos' do
+    scenario 'removes a photo when a user clicks delete link' do
+      visit '/photos'
+      add_photo_1
+      click_link 'Delete Photo'
+      expect(page).to have_content('Photo deleted successfully')
+      expect(page).not_to have_content('Photo One')
+      expect(page).not_to have_css("img[src*='test_image.jpg']")
     end
   end
 end
