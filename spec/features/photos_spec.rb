@@ -85,7 +85,7 @@ feature 'Photos' do
       visit '/photos'
       add_photo_1
       click_link 'Delete Photo'
-      expect(page).to have_content('Photo deleted successfully')
+      expect(page).to have_content('Photo deleted successfu')
       expect(page).not_to have_content('Photo One')
       expect(page).not_to have_css("img[src*='test_image.jpg']")
     end
