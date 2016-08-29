@@ -2,7 +2,6 @@ class PhotosController < ApplicationController
 
   def index
     @photos = Photo.all
-
   end
 
   def new
@@ -33,6 +32,7 @@ class PhotosController < ApplicationController
 
     redirect_to '/photos'
   end
+
   private
 
   def photo_params

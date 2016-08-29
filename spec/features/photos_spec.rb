@@ -38,18 +38,17 @@ feature 'Photos' do
 
   context 'viewing photos' do
 
-    # let!(:photo){ Photo.create( image_file_name: "/Users/Albie/Desktop/test_image.jpg", caption: 'Photo One') }
+    let!(:photo_1){ Photo.create( image_file_name: "/Users/Albie/Desktop/test_image.jpg", caption: 'Photo One') }
 
     scenario 'lets a user view individual photos' do
       visit '/photos'
-      add_photo_1
       add_photo_2
-      find("img[@alt='Test image']").click
+      find("##{photo_1.id}").click
       expect(page).to have_css("img[src*='test_image.jpg']")
       expect(page).to have_content("Photo One")
       expect(page).not_to have_content("Wave")
       expect(page).not_to have_css(("img[src*='test_image_2.jpg']"))
-      # expect(current_path).to eq("/photos/#{photo.id}")
+      expect(current_path).to eq("/photos/#{photo_1.id}")
     end
   end
 
