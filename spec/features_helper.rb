@@ -14,6 +14,12 @@ end
 
 def add_photo_without_image
   click_link 'Add Photo'
-  fill_in 'Caption', with: 'No image'
+  fill_in 'Caption', with: 'Photo without image'
+  click_button 'Create Photo'
+end
+
+def add_photo_without_caption
+  click_link 'Add Photo'
+  attach_file 'Image', '/Users/Albie/Desktop/test_image.jpg'
   click_button 'Create Photo'
 end
