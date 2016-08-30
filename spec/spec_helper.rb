@@ -43,7 +43,7 @@ RSpec.configure do |config|
   end
 
   config.after(:suite) do
-    FileUtils.rm_rf(Dir["#{Rails.root}/public/system/test"])
+    FileUtils.rm_rf(Dir["#{Rails.root}/public/system/photos"])
   end
 
   # This option will default to `:apply_to_host_groups` in RSpec 4 (and will
